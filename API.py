@@ -50,5 +50,28 @@ def GetClassLeaderboard(token):
     url ="https://msapi.itstep.org/api/v2/dashboard/progress/leader-group"
     return GetWithHeader(token,url)
 
+# first value : number of crystals
+#second value : number of coins
+#third value : sum of it (it's points)
+def GetPoints(token):
+        points = GetUserData(token)
+        points = points['gaming_points']
+        data = [points[0]['points'] , points[1]['points'] , points[0]['points'] + points[1]['points']]
+        return data
+
+def GetHomeworks(token):
+        # Note L outputs only all done and overdue hometasks. Why ? Because I have only this types of homeworks on my accaunt (not 0!)
+        url = 'https://msapi.itstep.org/api/v2/count/homework'
+        get = GetWithHeader(token,url)
+        allH = get[5]['counter']
+        done = get[0]['counter']
+        overdue = get[2]['counter']
+        data = [allH,done,overdue]
+        return data
+
+def GetFutureExsams(token):
+        url = 'https://msapi.itstep.org/api/v2/dashboard/info/future-exams'
+        get = GetWithHeader(token,url)
+        return get
 
 
