@@ -1,5 +1,5 @@
 import API
-token = API.getKey('YOUR_PASSWORD','YOUR_USERNAME')
+token = API.getKey('PASSWORD','USERNAME')
 print('Your token : {}'.format(token))
 name = API.GetUserData(token)['full_name']
 leaderboard = API.GetClassLeaderboard(token)
@@ -11,3 +11,16 @@ leaderboard = API.GetStreamLeaderboard(token)
 print('-------------------- Таблица лидеров потока --------------------')
 for place in leaderboard:
     print('Место {}: {}'.format(place['position'],place['full_name']))
+print('-------------------- Информация о пользователе --------------------')
+user = API.GetUserData(token)
+print('Ваша имя: {}'.format(user['full_name']))
+print('Ваш уровень: {}'.format(user['level']))
+print('Ссылочка на фотку: {}'.format(user['photo']))
+points = API.GetPoints(token)
+print('У вас {} коинов , {} алмазиков и {} очков'.format(points[1],points[0],points[2]))
+print('У вас {} ачивок.'.format(user['achieves_count']))
+get = API.GetHomeworks(token)
+print('Всего домашек: {} , сделанных: {} , просроченных: {}'.format(get[0],get[1],get[2]))
+future = API.GetFutureExsams(token)
+for exam in future:
+    print('Так у тебя {} Когда ? Да вот {}'.format(exam['spec'],exam['date']))
