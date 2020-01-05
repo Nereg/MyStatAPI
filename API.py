@@ -66,7 +66,8 @@ def GetHomeworks(token):
         allH = get[5]['counter']
         done = get[0]['counter']
         overdue = get[2]['counter']
-        data = [allH,done,overdue]
+        current = get[1]['counter'] # I took position from old code so it may be wrong
+        data = [allH,done,overdue,current]
         return data
 
 def GetFutureExsams(token):
