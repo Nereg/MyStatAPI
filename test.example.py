@@ -1,6 +1,8 @@
 import API
 token = API.getKey('PASSWORD','USERNAME')
 print('Your token : {}'.format(token))
+print('Your refresh token : {}'.format(token[1]))
+token = token[0]
 name = API.GetUserData(token)['full_name']
 leaderboard = API.GetClassLeaderboard(token)
 print('-------------------- Таблица лидеров группы --------------------')

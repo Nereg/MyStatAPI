@@ -36,7 +36,8 @@ def getKey (password,username):
              'username':username,
              'password':password
             }
-    return Post(myobj,url)['access_token']
+    result = Post(myobj,url)
+    return [result['access_token'],result['refresh_token']]
 
 def GetUserData(token):
     url = 'https://msapi.itstep.org/api/v2/settings/user-info'
