@@ -1,10 +1,16 @@
 import API
-token = API.getKey('YOUR_USERNAME','YOUR_PASSWORD')
+import time
+password = 'YOUR_PASSWORD'
+username = 'YOUR_USERNAME'
+token = API.getKey(password,username)
 print('Your token : {}'.format(token[0]))
 print('Your refresh token : {}'.format(token[1]))
 refreshed = API.RefreshToken(token[1])
 print('Your refreshed access token: {}'.format(refreshed[0]))
 print('Your refresh token : {}'.format(refreshed[1]))
+timing = API.getRefreshTime(password,username)
+print('Your access token will expire :{}'.format(time.ctime(int(timing[0]))))
+print('Your refresh token will expire :{}'.format(time.ctime(int(timing[1]))))
 token = token[0]
 name = API.GetUserData(token)['full_name']
 leaderboard = API.GetClassLeaderboard(token)
