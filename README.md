@@ -7,5 +7,6 @@
   * Group leaderboard (photo url + count of points)
 * Get count of all three types of points (crystals, coins and stars)
 * Future exams
+* Can refresh access token
 ## Todo 
-- [ ] Refresh access token
+- [ ] Homeworks (for now read only)
