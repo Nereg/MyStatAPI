@@ -34,9 +34,17 @@ def Get (data,url):
     response = json.loads(response.text)
     return validate(response)
 
-
-
 def getKey (password,username):
+    url = 'https://msapi.itstep.org/api/v2/auth/login'
+    myobj = {'application_key': '6a56a5df2667e65aab73ce76d1dd737f7d1faef9c52e8b8c55ac75f565d8e8a6',
+             'id_city':31 , # my dear city KHERSON
+             'username':username,
+             'password':password
+            }
+    result = Post(myobj,url)
+    return [result['access_token'],result['refresh_token']]
+
+def getRefreshTime(password,username):
     url = 'https://msapi.itstep.org/api/v2/auth/login'
     myobj = {'application_key': '6a56a5df2667e65aab73ce76d1dd737f7d1faef9c52e8b8c55ac75f565d8e8a6',
              'id_city':31 ,
@@ -44,7 +52,9 @@ def getKey (password,username):
              'password':password
             }
     result = Post(myobj,url)
-    return [result['access_token'],result['refresh_token']]
+    access_refresh_time = result['expires_in_access']
+    refresh_token_time = result['expires_in_refresh']
+    return [access_refresh_time,refresh_token_time] #just UNIX timestamps 
 
 def GetUserData(token):
     url = 'https://msapi.itstep.org/api/v2/settings/user-info'
