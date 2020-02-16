@@ -2,9 +2,11 @@ import requests
 import json
 import sys
 
+# VERSION OF API WITH DISABLED SSL! USED ONLY IN DEBUG
 
 #validate parsed JSON data from MyStat
 def validate (data):
+        print(data)
         try: # Yeah I can`t do it without catching some error (P.S. somehow doesn`t working for GET with auth)
             error = data[0]['message']
             raise Exception('Error from MyStat ! ' + error)
@@ -14,23 +16,23 @@ def validate (data):
             return data
 
 def GetWithHeader (token,url,data=''):
-    response = requests.get(url, data = data, headers={"authorization":"Bearer "+token})
+    response = requests.get(url, data = data, headers={"authorization":"Bearer "+token},verify=False)
     response = json.loads(response.text)
     return validate(response)
 
 def PostWithHeader (token,url,data):
-    response = requests.post(url, data = data, headers={"authorization":"Bearer "+token})
+    response = requests.post(url, data = data, headers={"authorization":"Bearer "+token},verify=False)
     response = json.loads(response.text)
     return validate(response)
 
 #make response validate for any errors and return parsed JSON 
 def Post (data,url,headers={}):
-    response = requests.post(url, data = data,headers=headers)
+    response = requests.post(url, data = data,verify=False, headers=headers)
     response = json.loads(response.text)
     return validate(response)
 
 def Get (data,url):
-    response = requests.get(url, data = data)
+    response = requests.get(url, data = data,verify=False)
     response = json.loads(response.text)
     return validate(response)
 
@@ -85,7 +87,8 @@ def GetFutureExsams(token):
 
 def RefreshToken(refresh_token):
     data = json.dumps({"refresh_token":refresh_token})
+    print(data)
     url = "https://msapi.itstep.org/api/v2/auth/refresh"
     result = Post(data,url,{'content-type': 'application/json'})
-    return [result['access_token'],result['refresh_token']]
+    print(result)
     
