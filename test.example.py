@@ -1,7 +1,7 @@
 import API
 import time
-password = 'YOUR_PASSWORD'
-username = 'YOUR_USERNAME'
+password = 'PASSWORD'
+username = 'USERNAME'
 token = API.getKey(password,username)
 print('Your token : {}'.format(token[0]))
 print('Your refresh token : {}'.format(token[1]))
@@ -31,7 +31,7 @@ points = API.GetPoints(token)
 print('У вас {} коинов , {} алмазиков и {} очков'.format(points[1],points[0],points[2]))
 print('У вас {} ачивок.'.format(user['achieves_count']))
 get = API.GetHomeworks(token)
-print('Всего домашек: {} , сделанных: {} , просроченных: {} , текущих: {}'.format(get[0],get[1],get[2],get[3]))
+print('Всего домашек: {} , сделанных: {} , просроченных: {} , текущих: {}, на проверке у учителя: {}'.format(get[0],get[1],get[2],get[3],get[4]))
 future = API.GetFutureExsams(token)
 for exam in future:
     print('Так у тебя {} Когда ? Да вот {}'.format(exam['spec'],exam['date']))

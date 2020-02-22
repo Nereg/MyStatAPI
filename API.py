@@ -81,11 +81,13 @@ def GetHomeworks(token):
         # Note L outputs only all done and overdue hometasks. Why ? Because I have only this types of homeworks on my accaunt (not 0!)
         url = 'https://msapi.itstep.org/api/v2/count/homework'
         get = GetWithHeader(token,url)
-        allH = get[5]['counter']
+        print(get)
+        all = get[5]['counter']
         done = get[0]['counter']
         overdue = get[2]['counter']
         current = get[1]['counter'] # I took position from old code so it may be wrong
-        data = [allH,done,overdue,current]
+        review = get[3]['counter']
+        data = [all,done,overdue,current,review]
         return data
 
 def GetFutureExsams(token):
@@ -98,4 +100,5 @@ def RefreshToken(refresh_token):
     url = "https://msapi.itstep.org/api/v2/auth/refresh"
     result = Post(data,url,{'content-type': 'application/json'})
     return [result['access_token'],result['refresh_token']]
+
     
