@@ -10,3 +10,4 @@
 * Can refresh access token
 ## Todo 
 - [ ] Homeworks (for now read only)
+# This repository using GNU GPLv3 [license](/LICENSE) 
