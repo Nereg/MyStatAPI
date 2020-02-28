@@ -2,3 +2,7 @@ __pycache__/*.*
 __pycache__
 test.py
 captureTrafficTest.py
+Lib
+pip
+Scripts
+pyvenv.cfg
