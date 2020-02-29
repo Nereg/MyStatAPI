@@ -18,4 +18,6 @@ Yeah it isn't a PyPi package now.
 - Go in downloaded directory 
 - `pip install -r requirements.txt`
 - `pytest src/`
+Also if you have MyStat account you can run [test.example.py](/test.example.py)
+Just paste your username and password
 # This repository using GNU GPLv3 [license](/LICENSE) 
