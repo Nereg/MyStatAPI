@@ -10,4 +10,12 @@
 * Can refresh access token
 ## Todo 
 - [ ] Homeworks (for now read only)
+## How to install
+Just copy API.py from [src](/src) directory to your project and import.
+Yeah it isn't a PyPi package now.
+## How to run auto tests
+- Clone or download this repository 
+- Go in downloaded directory 
+- `pip install -r requirements.txt`
+- `pytest src/`
 # This repository using GNU GPLv3 [license](/LICENSE) 
