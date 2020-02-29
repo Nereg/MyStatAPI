@@ -1,4 +1,4 @@
-import API
+from src import API
 import time
 password = 'PASSWORD'
 username = 'USERNAME'
