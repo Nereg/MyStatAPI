@@ -7,3 +7,4 @@ pip
 Scripts
 pyvenv.cfg
 .pytest_cache
+.vscode
