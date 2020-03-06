@@ -1,0 +1,10 @@
+language: python
+include:
+    - stage: "Tests"                # naming the Tests stage
+      name: "Install requirements"   # names the first Tests stage job
+      script: pip install -r requirements.txt
+      name: "Run tests"
+      script: pytest src/
+notifications:
+    email:
+      - okv23200@gmail.com
