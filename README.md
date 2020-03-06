@@ -1,4 +1,4 @@
-# Python API for [MyStat](https://mystat.itstep.org/ru/auth/login/index) [![Build Status](https://travis-ci.com/Nereg/MyStatAPI.svg?branch=master)](https://travis-ci.com/Nereg/MyStatAPI) [![CodeFactor](https://www.codefactor.io/repository/github/nereg/mystatapi/badge/master)](https://www.codefactor.io/repository/github/nereg/mystatapi/overview/master)
+# Python API for [MyStat](https://mystat.itstep.org/ru/auth/login/index) [![Build Status](https://travis-ci.com/Nereg/MyStatAPI.svg?branch=master)](https://travis-ci.com/Nereg/MyStatAPI) [![CodeFactor](https://www.codefactor.io/repository/github/nereg/mystatapi/badge/master)](https://www.codefactor.io/repository/github/nereg/mystatapi/overview/master) [![Coverage Status](https://coveralls.io/repos/github/Nereg/MyStatAPI/badge.svg?branch=master)](https://coveralls.io/github/Nereg/MyStatAPI?branch=master)
 ## Сapability
 * Login with password and login 
 * Full user info (like full name, photo url, group name, level and more)
