@@ -3,8 +3,8 @@
 * Login with password and login 
 * Full user info (like full name, photo url, group name, level and more)
 * Two leaderboards:
-  * Stream leaderboard (each with photo url)
-  * Group leaderboard (photo url + count of points)
+  * Stream leaderboard (each with photo url + count of points)
+  * Group leaderboard (photo url and also points)
 * Get count of all three types of points (crystals, coins and stars)
 * Future exams
 * Can refresh access token
