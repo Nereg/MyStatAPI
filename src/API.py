@@ -1,12 +1,12 @@
-import requests
 import json
 import sys
 
+import requests
 
 
 # Validate parsed JSON data from MyStat
 # If any error (in JSON message) it will raise it
-def validate (data):
+def validate (data): 
         try: # Yeah I can`t do it without catching some error (P.S. somehow doesn`t working for GET with auth)
             error = data[0]['message']
             raise Exception(error)
@@ -121,7 +121,7 @@ def GetHomeworks(token):
     data = [all,done,overdue,current,review]
     return data
 
-def GetFutureExsams(token):
+def GetFutureExams(token):
     url = 'https://msapi.itstep.org/api/v2/dashboard/info/future-exams'
     get = GetWithHeader(token,url)
     return get
@@ -136,5 +136,3 @@ def RefreshToken(refresh_token):
     url = "https://msapi.itstep.org/api/v2/auth/refresh"
     result = Post(data,url,{'content-type': 'application/json'})
     return [result['access_token'],result['refresh_token']]
-
-    

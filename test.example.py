@@ -32,6 +32,6 @@ print('У вас {} коинов , {} алмазиков и {} очков'.forma
 print('У вас {} ачивок.'.format(user['achieves_count']))
 get = API.GetHomeworks(token)
 print('Всего домашек: {} , сделанных: {} , просроченных: {} , текущих: {}, на проверке у учителя: {}'.format(get[0],get[1],get[2],get[3],get[4]))
-future = API.GetFutureExsams(token)
+future = API.GetFutureExams(token)
 for exam in future:
     print('Так у тебя {} Когда ? Да вот {}'.format(exam['spec'],exam['date']))

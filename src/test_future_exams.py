@@ -12,15 +12,16 @@ class MockResponse:
 
 def test_get_json(monkeypatch):
     # test raw JSON input
-    testData = '{"access_token":"0K6gn6i16dD43-7hgBaO-ns0tkNyNjhHijYAvnAzhkJFT91Dl1wwWJYQNFKXrs5B","refresh_token":"ifvRfjRlrF0KAV8K-TmDLcTqDfhhkb_M_Wl67EirJg9YTaAJ2OXXeCmm1rlb18bE","expires_in_refresh":1582030140,"expires_in_access":1581860940,"user_type":1,"upload_credentials":null,"city_data":null}'
+    testData ='[]'
     # Any arguments may be passed and mock_get() will always return our
     # mocked object, which only has the text property
     def mock_get(*args, **kwargs):
         return MockResponse(testData)
 
     # apply the monkeypatch for requests.post to mock_get
-    monkeypatch.setattr(requests, "post", mock_get)
+    monkeypatch.setattr(requests, "get", mock_get)
 
     # API.getkey that using patched requests.post
-    result = API.RefreshToken('test')
-    assert result == ['0K6gn6i16dD43-7hgBaO-ns0tkNyNjhHijYAvnAzhkJFT91Dl1wwWJYQNFKXrs5B','ifvRfjRlrF0KAV8K-TmDLcTqDfhhkb_M_Wl67EirJg9YTaAJ2OXXeCmm1rlb18bE']
+    result = API.GetFutureExams('test')
+    print(result)
+    assert result == []
