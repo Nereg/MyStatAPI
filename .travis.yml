@@ -4,7 +4,7 @@ install:
 script:
     - pytest src/
 after_success:
-    - coveralls
+    - COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN coveralls
 notifications:
     email:
       - okv23200@gmail.com
